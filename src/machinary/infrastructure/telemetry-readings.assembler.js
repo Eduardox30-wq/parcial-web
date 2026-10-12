@@ -1,5 +1,8 @@
 import { TelemetryEntity } from '../domain/model/telemetry-readings.entity.js';
-
+/**
+ * @summary Main layout integrating the toolbar, routing views, and language switcher.
+ * @author Eduardo Martin Guillen Chavez
+ */
 export class TelemetryAssembler{
 
     static toEntityFromResource(resource){

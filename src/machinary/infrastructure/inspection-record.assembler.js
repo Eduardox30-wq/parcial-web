@@ -1,5 +1,8 @@
 import { inspectionEntity } from '../domain/model/inspection-records.entity.js';
-
+/**
+ * @summary Main layout integrating the toolbar, routing views, and language switcher.
+ * @author Eduardo Martin Guillen Chavez
+ */
 export class InspectionAssembler{
 
     static toEntityFromResource(resource){

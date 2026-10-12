@@ -1,3 +1,8 @@
+
+/**
+ * @summary Main layout integrating the toolbar, routing views, and language switcher.
+ * @author Eduardo Martin Guillen Chavez
+ */
 export class TelemetryEntity {
     constructor(id, machineryCode, modelId, pitSectionId, operatingHours,
                 engineTemperatureC, oilPressurePsi, alertTriggered, registeredAt){
