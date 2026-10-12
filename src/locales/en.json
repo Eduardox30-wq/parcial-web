@@ -1,15 +1,12 @@
-%! Author = alumnos
-%! Date = 12/10/26
-
-% Preamble
-\documentclass[11pt]{article}
-
-% Packages
-\usepackage{amsmath}
-
-% Document
-\begin{document}
-
-
-
-\end{document}
+{
+  "option": {
+    "home": "Home",
+    "about": "About",
+    "Telemetry": "New Telemetry"
+  },
+  "authoring-phrase": {
+    "intro": "Made with",
+    "use": "using",
+    "author": "by {brand} Developer Team"
+  }
+}

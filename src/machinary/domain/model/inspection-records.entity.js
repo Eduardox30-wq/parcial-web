@@ -1,5 +1,5 @@
 /**
- * @summary Main layout integrating the toolbar, routing views, and language switcher.
+ * @summary Inspection entity class representing an inspection record for machinery.
  * @author Eduardo Martin Guillen Chavez
  */
 export class inspectionEntity {

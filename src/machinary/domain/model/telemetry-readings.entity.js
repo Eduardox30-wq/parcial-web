@@ -1,6 +1,6 @@
 
 /**
- * @summary Main layout integrating the toolbar, routing views, and language switcher.
+ * @summary Telemetry entity class representing telemetry readings for machinery.
  * @author Eduardo Martin Guillen Chavez
  */
 export class TelemetryEntity {

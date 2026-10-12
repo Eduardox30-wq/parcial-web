@@ -1,7 +1,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 /**
- * @summary Main layout integrating the toolbar, routing views, and language switcher.
+ * @summary Footer content component displaying copyright information and authoring phrase with internationalization support.
  * @author Eduardo Martin Guillen Chavez
  */
 const { t } = useI18n();
@@ -10,7 +10,7 @@ const { t } = useI18n();
 <template>
   <footer class="absolute bottom-0 left-0 w-full border-none bg-primary mt-4 border-round-md shadow-1 p-3">
     <div class="flex flex-column align-items-center justify-content-center gap-2 text-center text-white">
-      <p class="m-0 text-sm font-medium">Copyright &copy; 2026. All rights reserved.</p>
+      <p class="m-0 text-sm font-medium">Copyright &copy; 2026. U202421413 EDUARDO MARTIN GUILLEN CHAVEZ.</p>
       <p class="m-0 text-sm line-height-3">
         {{ t('authoring-phrase.intro') }}
         <i class="pi pi-heart text-pink-300" aria-hidden="true"/>

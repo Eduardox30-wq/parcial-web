@@ -1,30 +1,28 @@
 import {computed, ref} from "vue";
-//import {PublishingApi} from "../infrastructure/publishing-api.js";
 import { InspectionAssembler } from "../infrastructure/inspection-record.assembler.js";
 import {TelemetryAssembler} from "../infrastructure/telemetry-readings.assembler.js";
-import {TelemetryEntity} from "../domain/model/telemetry-readings.entity.js";
 import {inspectionEntity} from "../domain/model/inspection-records.entity.js";
 import {defineStore} from "pinia";
 /**
- * @summary Main layout integrating the toolbar, routing views, and language switcher.
+ * @summary This store is responsible for managing the state of the publishing module, including categories and tutorials. It provides methods to fetch, update, add, and delete categories and tutorials, as well as to retrieve specific entities by their IDs. The store also handles errors that may occur during API calls.
  * @author Eduardo Martin Guillen Chavez
  */
 //const publishingApi = new PublishingApi();
 
-const usePublishingStore = defineStore('publishing',
+const MachinaryStore = defineStore('machinaryStore',
     ()=>{
         const categories = ref([]);
 
-        const tutorials = ref([]);
+        const inspections = ref([]);
 
         const errors = ref([]);
 
         const categoriesLoaded = ref(false);
-        const tutorialsLoaded = ref(false);
+        const inspectionsLoaded = ref(false);
 
         function fetchCategories(){
             publishingApi.getCategories().then(response => {
-                categories.value = CategoryAssembler.toEntitiesFromResponse(response);
+                categories.value = TelemetryAssembler.toEntitiesFromResponse(response);
                 categoriesLoaded.value = true;
                 console.log(categories.value);
                 console.log(categoriesLoaded.value);
@@ -32,19 +30,19 @@ const usePublishingStore = defineStore('publishing',
                 errors.value.push(error);
             });
         }
-        function fetchTutorials(){
-            publishingApi.getTutorials().then(response => {
-                tutorials.value = TutorialAssembler.toEntitiesFromResponse(response);
-                tutorialsLoaded.value = true;
-                console.log(tutorials.value);
-                console.log(tutorialsLoaded.value);
+        function fetchInspections(){
+            publishingApi.getInspections().then(response => {
+                inspections.value = TelemetryAssembler.toEntitiesFromResponse(response);
+                inspectionsLoaded.value = true;
+                console.log(inspections.value);
+                console.log(inspectionsLoaded.value);
             }).catch(error => {
                 errors.value.push(error);
             })
         }
         function updateCategory(category){
-            publishingApi.updateCategory(category).then(response => {
-                const updatedCategory = CategoryAssembler.toEntityFromResource(response.data);
+            MachinaryStore()Api.updateCategory(category).then(response => {
+                const updatedCategory = TelemetryAssembler.toEntityFromResource(response.data);
                 const index = categories.value.findIndex(c => c.id === updatedCategory.id);
                 if (index !== -1) {
                     categories.value[index] = updatedCategory;
@@ -55,7 +53,7 @@ const usePublishingStore = defineStore('publishing',
         }
         function addCategory(category) {
             publishingApi.createCategory(category).then(response => {
-                const newCategory = CategoryAssembler.toEntityFromResource(response.data);
+                const newCategory = TelemetryAssembler.toEntityFromResource(response.data);
                 categories.value.push(newCategory);
             }).catch(error => {
                 errors.value.push(error);
@@ -65,9 +63,9 @@ const usePublishingStore = defineStore('publishing',
             let idNum = parseInt(id);
             return categories.value.find(category => category.id === idNum);
         }
-        function getTutorialById(id) {
+        function getInspectionById(id) {
             let idNum = parseInt(id);
-            return tutorials.value.find(tutorial => tutorial.id === idNum);
+            return inspections.value.find(inspection => inspection.id === idNum);
         }
         function deleteCategory(category) {
             publishingApi.deleteCategory(category.id).then(response => {
@@ -79,18 +77,18 @@ const usePublishingStore = defineStore('publishing',
             });
         }
         return {categories,
-            tutorials,
+            inspections,
             errors,
             categoriesLoaded,
-            tutorialsLoaded,
-            fetchCategories,
-            fetchTutorials,
-            updateCategory,
-            addCategory,
-            getCategoryById,
-            getTutorialById,
+            inspectionsLoaded,
+            fetchTelemetryReadings,
+            fetchInspections,
+            updateTelemetryReading,
+            addInspection,
+            getTelemetryReadingById,
+            getInspectionById,
             deleteCategory
         };
     }
 )
-export default usePublishingStore;
+export default MachinaryStore;

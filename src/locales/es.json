@@ -1,0 +1,12 @@
+{
+  "option": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "Telemetry": "Nueva Telemetry"
+  },
+  "authoring-phrase": {
+    "intro": "Hecho con",
+    "use": "utilizando",
+    "author": "por el Equipo de Desarrollo de {brand}"
+  }
+}

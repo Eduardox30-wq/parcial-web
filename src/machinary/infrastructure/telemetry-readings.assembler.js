@@ -1,6 +1,6 @@
 import { TelemetryEntity } from '../domain/model/telemetry-readings.entity.js';
 /**
- * @summary Main layout integrating the toolbar, routing views, and language switcher.
+ * @summary TelemetryAssembler is a class that provides methods to convert telemetry resources to telemetry entities.
  * @author Eduardo Martin Guillen Chavez
  */
 export class TelemetryAssembler{
