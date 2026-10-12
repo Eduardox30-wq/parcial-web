@@ -1,3 +1,7 @@
+/**
+ * @summary Main layout integrating the toolbar, routing views, and language switcher.
+ * @author Eduardo Martin Guillen Chavez
+ */
 export class inspectionEntity {
     constructor(Id, machineryCode, pitSectionId, inspectorName, status,
                 notes, inspectedAt, maxOperatingHours) {
